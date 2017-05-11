@@ -5,8 +5,8 @@
   <title>Quantified Self - Manage Foods</title>
 </head>
 <body>
-  <form id="addFoodForm" action="foods.html">
-    <table>
+  <!-- <form id="addFoodForm"> -->
+    <!-- <table>
       <tr id='new-food-name'>
         <td><label for="name">Name</label></td>
         <td><input type="text" id="new-food-name-field" /></td>
@@ -15,13 +15,18 @@
         <td><label for="calories">Calories</label></td>
         <td><input type="number" id="new-food-calories-field" min='0' step='10' /></td>
       </tr>
-    </table>
-    <!-- <label for="name">Name</label>
-    <input type="text" id="new-food-name-field" /><br>
-    <label for="calories">Calories</label>
-    <input type="number" id="new-food-calories-field" min='0' step='10' /><br> -->
-    <input type="submit" name="" value="Add Food">
-  </form>
+    </table> -->
+    <div id="new-food-name">
+      <label for="name">Name</label>
+      <input type="text" id="new-food-name-field" /><br>
+    </div>
+    <div id="new-food-calories">
+      <label for="calories">Calories</label>
+      <input type="number" id="new-food-calories-field" min='0' step='10' /><br>
+    </div>
+    <button id="add-food-button">Add Food</button><br>
+    <!-- <input type="submit" name="" value="Add Food"> -->
+  <!-- </form> -->
   <label for="filter">Filter by Name</label><br>
   <input type="text" name="filter" /><br>
 <!-- table -->
