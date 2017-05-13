@@ -14,9 +14,16 @@ module.exports = {
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
       { test: /\.css$/, loader: "style!css" },
       { test: /\.scss$/, loaders: ["style-loader", "css-loader", "sass-loader"] },
+      { test: /\.json$/, loader: 'json-loader' }
     ]
   },
   resolve: {
     extensions: ['', '.js', '.json', '.css']
+  },
+  node: {
+    console: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   }
 };
