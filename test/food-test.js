@@ -34,10 +34,10 @@ test.describe('our test bundle', function () {
     driver.get(`${host}/foods.html`);
 
     var foodName = driver.findElement({id: 'new-food-name-field'});
-    foodName.sendKeys('Pizza');
+    foodName.sendKeys('pizza');
 
     foodName.getAttribute('value').then(function(value) {
-      assert.equal(value, 'Pizza');
+      assert.equal(value, 'pizza');
     });
 
     var foodCalories = driver.findElement({id: 'new-food-calories-field'});
@@ -46,5 +46,25 @@ test.describe('our test bundle', function () {
     foodCalories.getAttribute('value').then(function(value) {
       assert.equal(value, '300');
     });
+  });
+
+  test.it('should allow me add a new food', function() {
+    driver.get(`${host}/foods.html`);
+
+    var foodName = driver.findElement({id: 'new-food-name-field'});
+    var foodCalories = driver.findElement({id: 'new-food-calories-field'});
+    var addFoodButton = driver.findElement({id: 'add-food-button'});
+
+    foodName.sendKeys('pizza');
+    foodCalories.sendKeys('300');
+    addFoodButton.click();
+
+    driver.wait(function () {
+      return driver.findElement({id: 'pizza'});
+    }, 10 * 1000);
+
+    driver.getPageSource().then(function(html) {
+      console.log(html)
+    })
   });
 });
