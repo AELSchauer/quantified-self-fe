@@ -15,6 +15,8 @@ test.describe('our test bundle', function () {
     driver = new webdriver.Builder()
       .forBrowser('chrome')
       .build();
+    driver.get(`${host}/foods.html`);
+    driver.executeScript('localStorage.clear();');
   });
 
   test.afterEach(function() {
@@ -58,12 +60,20 @@ test.describe('our test bundle', function () {
     foodCalories.sendKeys('300');
     addFoodButton.click();
 
-    driver.wait(function () {
-      return driver.findElement({id: 'pizza'});
-    }, 10 * 1000);
+    driver.findElement({id: 'pizza'}).then(function(row){
+      row.findElements(webdriver.By.tagName('td')).then(function(cells) {
+        cells[0].getAttribute('innerHTML').then(function(value) {
+          assert.equal(value, 'pizza');
+        });
 
-    driver.getPageSource().then(function(html) {
-      console.log(html)
-    })
+        cells[1].getAttribute('innerHTML').then(function(value) {
+          assert.equal(value, '300');
+        });
+      })
+    });
   });
 });
+
+// driver.getPageSource().then(function(html) {
+//   console.log(html)
+// })
