@@ -1,4 +1,3 @@
-require('./food-test')
 var assert    = require('chai').assert;
 var webdriver = require('selenium-webdriver');
 var test      = require('selenium-webdriver/testing');

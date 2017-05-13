@@ -21,7 +21,7 @@ module.exports = {
     extensions: ['', '.js', '.json', '.css']
   },
   node: {
-    console: 'empty',
+    console: true,
     fs: 'empty',
     net: 'empty',
     tls: 'empty'
