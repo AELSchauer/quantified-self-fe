@@ -15,8 +15,6 @@ test.describe('our test bundle', function () {
     driver = new webdriver.Builder()
       .forBrowser('chrome')
       .build();
-    driver.get(`${host}/foods.html`);
-    driver.executeScript('localStorage.clear();');
   });
 
   test.afterEach(function() {
@@ -60,8 +58,8 @@ test.describe('our test bundle', function () {
     foodCalories.sendKeys('300');
     addFoodButton.click();
 
-    driver.findElement({id: 'pizza'}).then(function(row){
-      row.findElements(webdriver.By.tagName('td')).then(function(cells) {
+    driver.findElements({className: 'food-row'}).then(function(rows){
+      rows[0].findElements({tagName: 'td'}).then(function(cells) {
         cells[0].getAttribute('innerHTML').then(function(value) {
           assert.equal(value, 'pizza');
         });
@@ -69,10 +67,28 @@ test.describe('our test bundle', function () {
         cells[1].getAttribute('innerHTML').then(function(value) {
           assert.equal(value, '300');
         });
-      })
+      });
+    });
+  });
+
+  test.it('should give me validation errors for an incorrect form', function() {
+    driver.get(`${host}/foods.html`);
+
+    var addFoodButton = driver.findElement({id: 'add-food-button'});
+    addFoodButton.click();
+
+    driver.findElements({className: 'red'}).then(function(errors){
+      errors[0].getAttribute('innerHTML').then(function(value) {
+        assert.equal(value, 'Name required');
+      });
+
+      errors[1].getAttribute('innerHTML').then(function(value) {
+        assert.equal(value, 'Calories required');
+      });
     });
   });
 });
+
 
 // driver.getPageSource().then(function(html) {
 //   console.log(html)
