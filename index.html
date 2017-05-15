@@ -7,9 +7,9 @@
 <body>
   <div class="body">
     <div class="date">
-      <button type="button" name="button"><</button>
+      <button type="button" name="button" id='previousDay'><</button>
         <span id="date"></span>
-      <button type="button" name="button">></button>
+      <button type="button" name="button" id='nextDay'>></button>
     </div>
     <div class="row">
       <div class="col-sm-4">
@@ -56,7 +56,7 @@
             <tbody class="totals">
               <tr>
                   <td>Total Calories</td>
-                  <td></td>
+                  <td class="lunch-totals"></td>
               </tr>
               <tr>
                   <td>Remaining Calories</td>
@@ -85,7 +85,7 @@
           <tbody class="totals">
             <tr>
                 <td>Total Calories</td>
-                <td></td>
+                <td class="dinner-totals"></td>
             </tr>
             <tr>
                 <td>Remaining Calories</td>
@@ -112,7 +112,7 @@
           <tbody class="totals">
             <tr>
                 <td>Total Calories</td>
-                <td></td>
+                <td class="snacks-totals"></td>
             </tr>
             <tr>
                 <td>Remaining Calories</td>
