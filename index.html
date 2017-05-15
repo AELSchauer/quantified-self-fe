@@ -17,7 +17,7 @@
           <h1>Breakfast</h1>
         <table class="table" id="breakfast">
           <thead>
-            <tr>
+            <tr class="titleRow">
               <td>Name</td>
               <td>Calories</td>
             </tr>
@@ -27,13 +27,13 @@
             </tr>
           </tbody>
             <tbody>
-              <tr>
+              <tr class="totalColumn">
                   <td>Total Calories</td>
-                  <td id="breakfast-totals"></td>
+                  <td class="breakfast-totals"></td>
               </tr>
               <tr>
                   <td>Remaining Calories</td>
-                  <td></td>
+                  <td>200</td>
               </tr>
             </tbody>
           </table>
@@ -155,9 +155,9 @@
     <label for="search">Search by Name</label><br>
     <input type="text" id="food_filter" /><br>
   <!-- table of foods -->
-    <table>
+    <table id="food-list">
       <thead>
-        <tr>
+        <tr id="headerz">
           <td>Name</td>
           <td>Calories</td>
         </tr>
