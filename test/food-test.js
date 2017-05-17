@@ -60,13 +60,17 @@ test.describe('our test bundle', function () {
 
     driver.findElements({className: 'food-row'}).then(function(rows){
       rows[0].findElements({tagName: 'td'}).then(function(cells) {
-        cells[0].getAttribute('innerHTML').then(function(value) {
-          assert.equal(value, 'pizza');
-        });
+        cells[0].findElement({tagName: 'span'}).then(function(span) {
+          span.getAttribute('innerHTML').then(function(value) {
+            assert.equal(value, 'pizza');
+          });
+        })
 
-        cells[1].getAttribute('innerHTML').then(function(value) {
-          assert.equal(value, '300');
-        });
+        cells[1].findElement({tagName: 'span'}).then(function(span) {
+          span.getAttribute('innerHTML').then(function(value) {
+            assert.equal(value, '300');
+          });
+        })
       });
     });
   });
