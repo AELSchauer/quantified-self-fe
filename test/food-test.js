@@ -75,6 +75,39 @@ test.describe('our test bundle', function () {
     });
   });
 
+  // test.it('should allow me edit foods name', function() {
+  //   driver.get(`${host}/foods.html`);
+  //
+  //   var foodName = driver.findElement({id: 'new-food-name-field'});
+  //   var foodCalories = driver.findElement({id: 'new-food-calories-field'});
+  //   var addFoodButton = driver.findElement({id: 'add-food-button'});
+  //   var existingFood = driver.findElement({className: 'food-name'})
+  //   console.log(existingFood)
+  //   foodName.sendKeys('pizza');
+  //   foodCalories.sendKeys('300');
+  //   addFoodButton.click();
+  //
+  //   existingFood.click();
+  //   // foodName.sendKeys('pizzas');
+  //   // body.click()
+  //
+  //   driver.findElements({className: 'food-row'}).then(function(rows){
+  //     rows[0].findElements({tagName: 'td'}).then(function(cells) {
+  //       cells[0].findElement({tagName: 'span'}).then(function(span) {
+  //         span.getAttribute('innerHTML').then(function(value) {
+  //           assert.equal(value, 'pizza');
+  //         });
+  //       })
+  //
+  //       cells[1].findElement({tagName: 'span'}).then(function(span) {
+  //         span.getAttribute('innerHTML').then(function(value) {
+  //           assert.equal(value, '300');
+  //         });
+  //       })
+  //     });
+  //   });
+  // });
+
   test.it('should give me validation errors for an incorrect form', function() {
     driver.get(`${host}/foods.html`);
 
